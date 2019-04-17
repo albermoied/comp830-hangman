@@ -9,6 +9,14 @@ public class Guess {
 	private Draw draw;
 
 	public Guess(String guess) {
+		
+	}
+
+	public int getCount() {
+		return count;
+	}
+	
+	public void makeGuess(String guess) {
 		String newasterisk = "";
 		for (int i = 0; i < words.length(); i++) {
 			if (words.charAt(i) == guess.charAt(0)) {
@@ -29,9 +37,5 @@ public class Guess {
 		if (asterisk.equals(words)) {
 			System.out.println("Correct! You win! The word was " + words);
 		}
-	}
-
-	public int getCount() {
-		return count;
 	}
 }

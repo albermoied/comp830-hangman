@@ -11,6 +11,8 @@ public class RunHangman {
 		Guess guess;
 		String asterisks = asterisk.toString();
 		int count = guess.getCount();
+		
+		//select difficulty
 
 		while (count < 7 && asterisks.contains("*")) {
 			System.out.println("Guess any letter in the word");
