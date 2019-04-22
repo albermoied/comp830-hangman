@@ -7,19 +7,19 @@ public class RunHangman {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Guess asterisk;
-		Guess guess;
-		String asterisks = asterisk.toString();
-		int count = guess.getCount();
+		System.out.println("Choose a difficulty from 1-3: ");
+		int difficulty = sc.nextInt();
+		Guess guess = new Guess(difficulty);
 		
 		//select difficulty
 
-		while (count < 7 && asterisks.contains("*")) {
+		while (guess.getCount() < 7 && guess.getAsterisk().contains("*")) {
 			System.out.println("Guess any letter in the word");
-			System.out.println(asterisks);
+			System.out.println(guess.getAsterisk());
 			String next = sc.next();
-			Guess(next);
+			guess.makeGuess(next);
 		}
+		System.out.println("The word was " + guess.getWord() + "!");
 		sc.close();
 	}
 }
