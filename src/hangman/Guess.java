@@ -28,22 +28,22 @@ public class Guess {
 	}
 	
 	public void makeGuess(String guess) {
-		String newasterisk = "";
+		String hiddenWord = "";
 		for (int i = 0; i < words.length(); i++) {
 			if (words.charAt(i) == guess.charAt(0)) {
-				newasterisk += guess.charAt(0);
+				hiddenWord += guess.charAt(0);
 			} else if (asterisk.charAt(i) != '*') {
-				newasterisk += words.charAt(i);
+				hiddenWord += words.charAt(i);
 			} else {
-				newasterisk += "*";
+				hiddenWord += "*";
 			}
 		}
 
-		if (asterisk.equals(newasterisk)) {
+		if (asterisk.equals(hiddenWord)) {
 			count++;
 			draw.DrawHangman(count);
 		} else {
-			asterisk = newasterisk;
+			asterisk = hiddenWord;
 		}
 		if (asterisk.equals(words)) {
 			System.out.println("Correct! You win! The word was " + words);
