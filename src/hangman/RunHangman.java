@@ -10,8 +10,6 @@ public class RunHangman {
 		System.out.println("Choose a difficulty from 1-3: ");
 		int difficulty = sc.nextInt();
 		Guess guess = new Guess(difficulty);
-		
-		//select difficulty
 
 		while (guess.getCount() < 7 && guess.getAsterisk().contains("*")) {
 			System.out.println("Guess any letter in the word");
