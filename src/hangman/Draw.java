@@ -2,14 +2,10 @@ package hangman;
 
 public class Draw {
 
-	Guess guess;
-	Word word;
-	String words = word.toString();
-	
+
 	public Draw() {}
 
-	public void DrawHangman() {
-		int count = guess.getCount();
+	public void DrawHangman(int count) {
 		
 		if (count == 1) {
 			System.out.println("Wrong guess, try again");
@@ -91,7 +87,7 @@ System.out.println("   |         \\_ _/");
 			System.out.println("   |         / | \\");
 			System.out.println("   |          / \\ ");
 			System.out.println("___|___      /   \\");
-			System.out.println("GAME OVER! The word was " + words);
+			System.out.println("GAME OVER!");
 		}
 	}
 		
