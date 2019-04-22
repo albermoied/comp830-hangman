@@ -3,17 +3,28 @@ package hangman;
 public class Guess {
 
 	private Word word;
-	private String words = word.toString();
-	private String asterisk = new String(new char[words.length()]).replace("\0", "*");
+	private String words;
+	private String asterisk;
 	private int count = 0;
 	private Draw draw;
 
-	public Guess(String guess) {
-		
+	public Guess(int difficulty) {
+		word = new Word(difficulty);
+		words = word.getWord();
+		asterisk = new String(new char[words.length()]).replace("\0", "*");
+		draw = new Draw();
+	}
+	
+	public String getWord() {
+		return words;
 	}
 
 	public int getCount() {
 		return count;
+	}
+	
+	public String getAsterisk() {
+		return asterisk;
 	}
 	
 	public void makeGuess(String guess) {
@@ -30,7 +41,7 @@ public class Guess {
 
 		if (asterisk.equals(newasterisk)) {
 			count++;
-			draw.DrawHangman();
+			draw.DrawHangman(count);
 		} else {
 			asterisk = newasterisk;
 		}
