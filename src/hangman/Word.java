@@ -16,13 +16,13 @@ public class Word {
 	
 	public void retrieveWord() {
 		if (difficulty == 1) {
-			//retrieve word from easy file
+			//word = getEasyWord();
 			word = "plane";
 		} else if (difficulty == 2) {
-			//retrieve word from medium file
+			//word = getMediumWord();
 			word = "giraffe";
 		} else {
-			//retrieve word from hard file
+			//word = getHardWord();
 			word = "dandelion";
 		}
 		
