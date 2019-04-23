@@ -20,11 +20,14 @@ public class RunHangman {
 			String next = sc.next();
 			guess.makeGuess(next);
 		}
-		System.out.println("The word was " + guess.getWord() + "!" + "\n");
-		System.out.println("To restart the game press ");
+		System.out.println("\n" + "To restart the game press ");
 		//restart main method 
 		//if restart ('y') selected, restart game. if restart cancelled ('n'), sc.close();
 		//look up scanner methods ie. sc.nextInt()
 		sc.close();
+		
+		//File file = new File(".");
+		//for(String fileNames : file.list()) System.out.println(fileNames);
+		//use above to make sure text files were in the right path
 	}
 }
