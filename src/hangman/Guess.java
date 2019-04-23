@@ -46,7 +46,7 @@ public class Guess {
 			asterisk = hiddenWord;
 		}
 		if (asterisk.equals(words)) {
-			System.out.println("Correct! You win! The word was " + words);
+			System.out.println("Correct! You win!");
 		}
 	}
 }

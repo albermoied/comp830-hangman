@@ -20,6 +20,7 @@ public class RunHangman {
 			String next = sc.next();
 			guess.makeGuess(next);
 		}
+		System.out.println("The word was " + guess.getWord());
 		System.out.println("\n" + "To restart the game press ");
 		//restart main method 
 		//if restart ('y') selected, restart game. if restart cancelled ('n'), sc.close();

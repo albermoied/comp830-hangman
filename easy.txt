@@ -1,1 +1,1 @@
-"cat","hat","red","blue","toy","glass","gold","paint","sugar","woman"
+cat,hat,red,blue,toy,glass,gold,paint,sugar,woman
