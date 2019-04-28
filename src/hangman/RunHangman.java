@@ -16,13 +16,14 @@ public class RunHangman {
 			int difficulty = sc.nextInt();
 			boolean Valid = false;
 
-			while (!Valid) {
+			/*while (!Valid) {
 				System.out.println("Choose a difficulty between 1-3");
 				difficulty = sc.nextInt();
 				if (difficulty >= 1 && difficulty <= 3) {
 					Valid = true;
 				}
-			}
+			}*/
+			
 			Guess guess = new Guess(difficulty);
 
 			while (guess.getCount() < 7 && guess.getAsterisk().contains("*")) {
