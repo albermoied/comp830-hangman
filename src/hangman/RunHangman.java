@@ -13,8 +13,25 @@ public class RunHangman {
 			System.out.println("Welcome to HANGMAN!" + "\n");
 			System.out.println("Please choose a difficulty:");
 			System.out.println("Easy(1)--Medium(2)--Hard(3)");
-			int difficulty = sc.nextInt();
+			
 			boolean Valid = false;
+			while(!Valid) {
+				int difficulty = sc.nextInt();
+			
+				if(difficulty >=1 && difficulty <=3) {
+					Guess guess = new Guess(difficulty);
+					while (guess.getCount() < 7 && guess.getAsterisk().contains("*")) {
+						System.out.println("Guess any letter in the word");
+						System.out.println(guess.getAsterisk());
+						String next = sc.next();
+						guess.makeGuess(next);
+					}
+					System.out.println("The word was " + guess.getWord());
+					Valid = true;
+				}
+				else
+					System.out.println("Wrong Selection. Try Again...");
+			}
 
 			/*while (!Valid) {
 				System.out.println("Choose a difficulty between 1-3");
@@ -24,15 +41,9 @@ public class RunHangman {
 				}
 			}*/
 			
-			Guess guess = new Guess(difficulty);
+			//Guess guess = new Guess(difficulty);
 
-			while (guess.getCount() < 7 && guess.getAsterisk().contains("*")) {
-				System.out.println("Guess any letter in the word");
-				System.out.println(guess.getAsterisk());
-				String next = sc.next();
-				guess.makeGuess(next);
-			}
-			System.out.println("The word was " + guess.getWord());
+			
 			// done = true;
 
 			boolean validate = false;
@@ -42,7 +53,7 @@ public class RunHangman {
 
 				if (answer.equalsIgnoreCase("no")) {
 					System.out.println("GOOD-BYE, THANKS FOR PLAYING");
-					sc.close();
+					//sc.close();
 					reset = false; // break outer loop
 					validate = true; // break inner loop
 				} else if (answer.equalsIgnoreCase("yes")) {
