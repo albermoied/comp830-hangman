@@ -8,6 +8,7 @@ public class Guess {
 	private int count = 0;
 	private Draw draw;
 
+	//Sets the number of asterisks shown to be equal to the number of letters in the word
 	public Guess(int difficulty) {
 		word = new Word(difficulty);
 		words = word.getWord();
@@ -27,6 +28,9 @@ public class Guess {
 		return asterisk;
 	}
 	
+	//Guesses a character
+	//Replaces asterisk with the character if its right
+	//Adding to count if the guess is wrong
 	public void makeGuess(String guess) {
 		String hiddenWord = "";
 		for (int i = 0; i < words.length(); i++) {
@@ -39,14 +43,18 @@ public class Guess {
 			}
 		}
 
+		//If the character input by the player is incorrect draw Hangman
 		if (asterisk.equals(hiddenWord)) {
 			count++;
 			draw.DrawHangman(count);
-		} else {
+		} 
+		else {
 			asterisk = hiddenWord;
 		}
+		
+		//If the player guesses all the correct letters they win the game
 		if (asterisk.equals(words)) {
-			System.out.println("Correct! You win!");
+			System.out.println("That is correct, you win!");
 		}
 	}
 }

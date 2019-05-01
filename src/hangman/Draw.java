@@ -5,6 +5,8 @@ public class Draw {
 
 	public Draw() {}
 
+	//Checks to see how many guesses the player has made
+	//For each incorrect guess, draw a piece of the Hangman
 	public void DrawHangman(int count) {
 		
 		if (count == 1) {
@@ -76,6 +78,7 @@ System.out.println("   |         \\_ _/");
 			System.out.println("   |          / \\ ");
 			System.out.println("___|___      /   \\");
 		}
+		//Once the incorrect guess count gets to 7, the game is over
 		if (count == 7) {
 			System.out.println("GAME OVER!");
 			System.out.println("   ____________");

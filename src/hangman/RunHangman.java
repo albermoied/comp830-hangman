@@ -5,19 +5,22 @@ import java.util.Scanner;
 public class RunHangman {
 
 	public static void main(String[] args) {
-		// boolean done = true;
 		boolean reset = true;
 
+		//Start of the game, prompts the player to choose difficulty
 		while (reset) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Welcome to HANGMAN!" + "\n");
 			System.out.println("Please choose a difficulty:");
 			System.out.println("Easy(1)--Medium(2)--Hard(3)");
 			
+			//Accepts an integer from the player by Scanner
 			boolean Valid = false;
 			while(!Valid) {
 				int difficulty = sc.nextInt();
 			
+				//Makes sure the player inputs 1, 2, or 3 for difficulty
+				//Allows player 7 incorrect guesses before game over
 				if(difficulty >=1 && difficulty <=3) {
 					Guess guess = new Guess(difficulty);
 					while (guess.getCount() < 7 && guess.getAsterisk().contains("*")) {
@@ -26,51 +29,36 @@ public class RunHangman {
 						String next = sc.next();
 						guess.makeGuess(next);
 					}
-					System.out.println("The word was " + guess.getWord());
+					//Prints the word if the player wins or loses
+					System.out.println("The word was " + guess.getWord() + "!");
 					Valid = true;
 				}
+				//Output if the player does not input 1, 2, or 3 for difficulty
 				else
-					System.out.println("Wrong Selection. Try Again...");
+					System.out.println("That is an incorrect selection. Please choose 1, 2, or 3");
 			}
 
-			/*while (!Valid) {
-				System.out.println("Choose a difficulty between 1-3");
-				difficulty = sc.nextInt();
-				if (difficulty >= 1 && difficulty <= 3) {
-					Valid = true;
-				}
-			}*/
-			
-			//Guess guess = new Guess(difficulty);
-
-			
-			// done = true;
-
+			//End of the game, checks to see if player wants to restart the game
 			boolean validate = false;
 			while (!validate) {
-				System.out.println("\nDo you want to play again?");
+				System.out.println("\nDo you want to play again? Type yes or no");
 				String answer = sc.next();
 
+				//If the player inputs 'no' quit the game
 				if (answer.equalsIgnoreCase("no")) {
-					System.out.println("GOOD-BYE, THANKS FOR PLAYING");
-					//sc.close();
+					System.out.println("GOOD-BYE, THANKS FOR PLAYING!");
 					reset = false; // break outer loop
 					validate = true; // break inner loop
-				} else if (answer.equalsIgnoreCase("yes")) {
+				}
+					//If the player inputs 'yes', restart the game
+				 else if (answer.equalsIgnoreCase("yes")) {
 					validate = true; // break inner loop
-				} else {
-					System.out.println("You inputted a wrong value. Please input yes or no.");
+				}
+					//Alert the player if they do not type 'yes' or 'no'
+				else {
+					System.out.println("That is an incorrect input value. Please type yes or no");
 				}
 			}
-
 		}
-		// restart main method
-		// if restart ('y') selected, restart game. if restart cancelled ('n'),
-		// sc.close();
-		// look up scanner methods ie. sc.nextInt()
-
-		// File file = new File(".");
-		// for(String fileNames : file.list()) System.out.println(fileNames);
-		// use above to make sure text files were in the right path
 	}
 }
