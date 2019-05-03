@@ -7,9 +7,7 @@ public class RunHangman {
 
 	public static void main(String[] args) {
 		boolean reset = true;
-		ArrayList<String> list = new ArrayList<String>();
-		ArrayList<String> list2 = new ArrayList<String>();
-		
+		ArrayList<String> list = new ArrayList<String>();	
 
 		//Start of the game, prompts the player to choose difficulty
 		while (reset) {
