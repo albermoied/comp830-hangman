@@ -1,11 +1,15 @@
 package hangman;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RunHangman {
 
 	public static void main(String[] args) {
 		boolean reset = true;
+		ArrayList<String> list = new ArrayList<String>();
+		ArrayList<String> list2 = new ArrayList<String>();
+		
 
 		//Start of the game, prompts the player to choose difficulty
 		while (reset) {
@@ -24,13 +28,16 @@ public class RunHangman {
 				if(difficulty >=1 && difficulty <=3) {
 					Guess guess = new Guess(difficulty);
 					while (guess.getCount() < 7 && guess.getAsterisk().contains("*")) {
-						System.out.println("Guess any letter in the word");
+						System.out.println("\n" + "Guess any letter in the word");
 						System.out.println(guess.getAsterisk());
 						String next = sc.next();
 						guess.makeGuess(next);
+						list.add(next);
+						System.out.println("\n" + "Guessed Letters");
+						System.out.print(list + "\n");
 					}
-					//Prints the word if the player wins or loses
-					System.out.println("The word was " + guess.getWord() + "!");
+					//Prints the hidden word
+					System.out.println("\n" + "The word was " + guess.getWord() + "!");
 					Valid = true;
 				}
 				//Output if the player does not input 1, 2, or 3 for difficulty
