@@ -7,10 +7,11 @@ public class RunHangman {
 
 	public static void main(String[] args) {
 		boolean reset = true;
-		ArrayList<String> list = new ArrayList<String>();	
+		
 
 		//Start of the game, prompts the player to choose difficulty
 		while (reset) {
+			ArrayList<String> list = new ArrayList<String>();	
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Welcome to HANGMAN!" + "\n");
 			System.out.println("Please choose a difficulty:");
@@ -29,8 +30,15 @@ public class RunHangman {
 						System.out.println("\n" + "Guess any letter in the word");
 						System.out.println(guess.getAsterisk());
 						String next = sc.next();
-						guess.makeGuess(next);
+						
+						//Check for repeated letters
+						while (list.isEmpty() == false && list.contains(next) == true) {	
+						    System.out.println("\n" + "Letter already entered. Try another letter...");
+						    next = sc.next();
+						}
+						
 						list.add(next);
+						guess.makeGuess(next);
 						System.out.println("\n" + "Guessed Letters");
 						System.out.print(list + "\n");
 					}
