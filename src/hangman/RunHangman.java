@@ -31,7 +31,7 @@ public class RunHangman {
 						System.out.println(guess.getAsterisk());
 						String next = sc.next();
 						
-						//Check for repeated letters
+						//Validation for repeated letters
 						while (list.isEmpty() == false && list.contains(next) == true) {	
 						    System.out.println("\n" + "Letter already entered. Try another letter...");
 						    next = sc.next();
