@@ -2,23 +2,26 @@ package hangman;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Frame;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import java.awt.FlowLayout;
-import java.awt.CardLayout;
-import java.awt.Panel;
-import java.awt.Font;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
 
 public class Gui extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -43,45 +46,45 @@ public class Gui extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
-		
-		JLabel lblPleaseChooseA = new JLabel("Please choose a difficulty:");
-		lblPleaseChooseA.setBounds(5, 26, 199, 16);
-		lblPleaseChooseA.setFont(new Font("Lucida Grande", Font.PLAIN, 14));
-		lblPleaseChooseA.setVerticalAlignment(SwingConstants.TOP);
-		lblPleaseChooseA.setHorizontalAlignment(SwingConstants.LEFT);
-		panel.add(lblPleaseChooseA);
-		
-		JLabel lblEasymediumhard = new JLabel("1. Easy");
-		lblEasymediumhard.setBounds(5, 54, 199, 16);
-		panel.add(lblEasymediumhard);
-		
-		textField = new JTextField();
-		textField.setBounds(5, 146, 179, 34);
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.setBounds(34, 192, 117, 29);
-		panel.add(btnNewButton);
-		
-		JLabel lblMedium = new JLabel("2. Medium");
-		lblMedium.setBounds(5, 82, 75, 16);
-		panel.add(lblMedium);
-		
-		JLabel lblHard = new JLabel("3. Hard");
-		lblHard.setBounds(5, 110, 61, 16);
-		panel.add(lblHard);
-		
-		JLabel welcomeLabel = new JLabel("Welcome to Hangman");
-		contentPane.add(welcomeLabel, BorderLayout.NORTH);
-		welcomeLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+		JLabel welcomeLabel = new JLabel("WELCOME TO HANGMAN!");
+		welcomeLabel.setBackground(Color.WHITE);
+		welcomeLabel.setFont(new Font("Tahoma", Font.BOLD, 24));
+		welcomeLabel.setForeground(Color.BLUE);
+		welcomeLabel.setBounds(5, 5, 424, 43);
 		welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(welcomeLabel);
+		
+		JButton btnNewButton_1 = new JButton("Exit Game");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnNewButton_1.setForeground(Color.RED);
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setBounds(174, 204, 89, 27);
+		contentPane.add(btnNewButton_1);
+		
+		JLabel lblSelectDifficultyLevel = new JLabel("Select  Difficulty Level:");
+		lblSelectDifficultyLevel.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblSelectDifficultyLevel.setForeground(Color.CYAN);
+		lblSelectDifficultyLevel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSelectDifficultyLevel.setBounds(10, 85, 424, 14);
+		contentPane.add(lblSelectDifficultyLevel);
+		
+		JButton btnNewButton_2 = new JButton("Easy");
+		btnNewButton_2.setBounds(72, 110, 89, 23);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnMedium = new JButton("Medium");
+		btnMedium.setBounds(174, 110, 89, 23);
+		contentPane.add(btnMedium);
+		
+		JButton btnHard = new JButton("Hard");
+		btnHard.setBounds(273, 110, 89, 23);
+		contentPane.add(btnHard);
+		
+
 	}
 }

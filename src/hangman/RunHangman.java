@@ -7,7 +7,6 @@ public class RunHangman {
 
 	public static void main(String[] args) {
 		boolean reset = true;
-		
 
 		//Start of the game, prompts the player to choose difficulty
 		while (reset) {
